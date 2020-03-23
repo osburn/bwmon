@@ -5,7 +5,7 @@ bwmon
 
 Using the ookla CLI speed test program I crontab the app to take samples every 10 mins and output the the data from the speedtest app in json format.
 I take that output and stuff right into postgres as a json formatted field
-I use gnuplot to graph the data
+I use gnuplot to graph the data. I run this on FreeBSD.
 
 
 ### Step 1)
@@ -13,7 +13,6 @@ Download the ookla CLI speed test app, run and accept the user license agreement
 
 * https://speedtest.net/apps/cli
 * https://bintray.com/ookla/download/speedtest-cli#files
-* https://bintray.com/ookla/download/download_file?file_path=ookla-speedtest-1.0.0-macosx.tgz
 
 Here are some CLI Speed test examples, ensure you can reach a server:
 * You'll want to run speedtest with "--servers" and select a different server that is closest to you. Ideally one that is hosted by your provider is best.
