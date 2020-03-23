@@ -52,6 +52,7 @@ create your Crontab entry:
 ```
 
 * Make sure you create the directory ~/graph or change that to where you want your graphs to be in gnuplot_comcast_bandwidth
+* Also update the directory paths, as your login name and directory path is probably not "osburn" :)
 
 ### Example graph
 
