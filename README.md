@@ -7,6 +7,8 @@ Using the ookla CLI speed test program I crontab the app to take samples every 1
 I take that output and stuff right into postgres as a json formatted field
 I use gnuplot to graph the data. I run this on FreeBSD.
 
+* Also take note of the graph at the bottom that shows how much data this will consume a month if you run it every 10 mins like I did. As you'll go over your monthly limits if you have any. I used around 5.3 TB, well over my existing 1 TB cap.
+
 
 ### Step 1)
 Download the ookla CLI speed test app, run and accept the user license agreement
@@ -56,3 +58,4 @@ create your Crontab entry:
 ### Example graph
 
 ![Comcast download speed over time](comcast_bandwidth.png "comcast_bandwidth.png")
+![Comcast bw usage](bwusage.png "bwusage.png")
