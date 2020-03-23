@@ -1,0 +1,18 @@
+export PGPASSWORD='mysecretpass'; psql -h localhost -U speedtest speedtest <<EOF
+
+
+SELECT
+	ts AS "timestamp",
+	-- to_char(TO_TIMESTAMP(data ->> 'timestamp', 'YYYY-MM-DD"T"HH24:MI:SS"Z"'), 'YYYY-MM-DD HH24:MI:SS') AS "timestamp",
+	CAST (data-> 'download' ->> 'bandwidth' AS INTEGER)*8/1000000 AS "down",
+	CAST (data-> 'upload' ->> 'bandwidth' AS INTEGER)*8/1000000 AS "up",
+	data-> 'result' ->> 'url' AS "result"
+
+FROM
+	samples
+
+ORDER BY
+	timestamp
+;
+
+EOF

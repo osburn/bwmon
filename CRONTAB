@@ -1,0 +1,21 @@
+#!/usr/local/bin/bash
+
+# */10 * * * * /home/osburn/speedtest/CRONTAB > /dev/null 2>&1
+
+SHELL=/usr/local/bin/bash
+LSCOLORS=Exfxcxdxbxegedabagacad
+PWD=/home/osburn/speedtest
+LOGNAME=osburn
+TZ=PST8PDT
+HOME=/home/osburn
+CLICOLOR=1
+TERM=xterm
+USER=osburn
+SHLVL=1
+PATH=~/bin:~/ping:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/opt/local/share/man:/usr/bin:/usr/local/sbin:/bin:/usr/sbin:/sbin
+BLOCKSIZE=K
+_=/usr/bin/env
+
+/usr/local/bin/speedtest --server-id=1782 --format=json | /home/osburn/speedtest/push_into_psql
+/home/osburn/speedtest/gnuplot_comcast_bandwidth
+

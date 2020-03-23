@@ -1,0 +1,48 @@
+#!/usr/local/bin/bash
+
+# Tim Osburn
+# 190502
+
+
+
+if [ "$1" == "new" ]
+then
+   DATETIME=$(date -u '+%y%m%d-%H%M%S-UTC')
+   AUTHLOGGRAPH="comcast_bandwidth_${DATETIME}.png"
+else
+   DATETIME=$(date -u '+%y%m%d')
+   AUTHLOGGRAPH="comcast_bandwidth_${DATETIME}.png"
+fi
+
+AUTHSAVEDIR="/home/osburn/speedtest/graphs"
+
+/home/osburn/speedtest/query_for_graph > /var/tmp/bandwidthdata
+
+/usr/local/bin/gnuplot -persist <<-EOFMarker
+set title "Comcast GigE service testing using Comcast's speedtest server"
+unset multiplot
+set xdata time
+set yrange [0:1000]
+set grid ytics lt 0 lw 1 lc rgb "#bbbbbb"
+set grid xtics lt 0 lw 1 lc rgb "#bbbbbb"
+set style data lines
+set arrow from graph 0,0.93 to graph 1,0.93 nohead ls 3 lw 1 lc rgb "green"
+set term png
+set timefmt "\"%Y-%m-%d %H:%M\""
+set timefmt "%Y-%m-%d %H:%M"
+set format x "%m-%d\n%H:%M"
+set xlabel "Time PST"
+set ylabel "mbps"
+set autoscale x
+set output "${AUTHSAVEDIR}/${AUTHLOGGRAPH}"
+set datafile separator " "
+set term png size 1600,600
+set encoding iso_8859_1
+set key right bottom
+plot '/var/tmp/bandwidthdata' using 1:2 t "Speedtest results" with lines lw 1, \
+  1/0 t "Expected GigE service speed (avg 930mbps)" lc rgb "green" lw 2
+exit
+EOFMarker
+
+rm -f /usr/local/www/apache24/data/comcast/comcast_bandwidth.png
+ln -s ${AUTHSAVEDIR}/${AUTHLOGGRAPH} /usr/local/www/apache24/data/comcast/comcast_bandwidth.png

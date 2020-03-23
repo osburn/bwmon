@@ -1,0 +1,9 @@
+read -r SPEEDTEST
+export PGPASSWORD='mysecretpass'; psql -q -h localhost -U speedtest speedtest <<EOF
+INSERT INTO samples (data)
+VALUES
+  (
+   '${SPEEDTEST}'   
+  );
+
+EOF
