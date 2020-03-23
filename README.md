@@ -11,9 +11,9 @@ I use gnuplot to graph the data
 ### Step 1)
 Download the ookla CLI speed test app, run and accept the user license agreement
 
-https://speedtest.net/apps/cli
-https://bintray.com/ookla/download/speedtest-cli#files
-https://bintray.com/ookla/download/download_file?file_path=ookla-speedtest-1.0.0-macosx.tgz
+* https://speedtest.net/apps/cli
+* https://bintray.com/ookla/download/speedtest-cli#files
+* https://bintray.com/ookla/download/download_file?file_path=ookla-speedtest-1.0.0-macosx.tgz
 
 Here are some CLI Speed test examples, ensure you can reach a server:
 ```
