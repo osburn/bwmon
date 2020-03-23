@@ -51,6 +51,8 @@ create your Crontab entry:
 */10 * * * * /Users/osburn/speedtest/CRONTAB > /dev/null 2>&1
 ```
 
+* Make sure you create the directory ~/graph or change that to where you want your graphs to be in gnuplot_comcast_bandwidth
+
 ### Example graph
 
 ![Comcast download speed over time](comcast_bandwidth.png "comcast_bandwidth.png")
