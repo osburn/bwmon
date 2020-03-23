@@ -25,8 +25,7 @@ speedtest --server-id=1782 --progress=no -u auto-decimal-bits -vvvv --output-hea
 ### Step 2)
 Install psql and setup db/table that we'll use.
 
-CREATE SPEEDTEST USER AND DB
------------------------------
+* Create speedtest user and db
 ```
 CREATE ROLE speedtest WITH PASSWORD 'mysecretpass' LOGIN NOINHERIT NOCREATEROLE NOCREATEDB;
 CREATE DATABASE speedtest WITH OWNER speedtest TEMPLATE template1;
