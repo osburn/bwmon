@@ -16,6 +16,7 @@ Download the ookla CLI speed test app, run and accept the user license agreement
 * https://bintray.com/ookla/download/download_file?file_path=ookla-speedtest-1.0.0-macosx.tgz
 
 Here are some CLI Speed test examples, ensure you can reach a server:
+* You'll want to run speedtest with "--servers" and select a different server that is closest to you. Ideally one that is hosted by your provider is best.
 ```
 speedtest --server-id=1782 --format=json | jq
 speedtest --server-id=1782 --progress=no -u auto-decimal-bits
