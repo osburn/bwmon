@@ -59,4 +59,3 @@ create your Crontab entry:
 
 ![Comcast download speed over time](comcast_bandwidth.png "comcast_bandwidth.png")
 ![Comcast bw usage](bwusage.png "bwusage.png")
-
